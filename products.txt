@@ -1,0 +1,3 @@
+300; bannaner;4.50;Perkilo
+400; Kaffe; 12.50; PerStyck
+100; Folköl,15; PerStyck
