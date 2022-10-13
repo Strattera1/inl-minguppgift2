@@ -1,5 +1,3 @@
-from os import name
-
 
 class Product:
     def __init__(self, name:str, price:float,productid:str):
