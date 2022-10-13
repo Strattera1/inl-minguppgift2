@@ -20,8 +20,8 @@ def Huvud_meny():
 
 def Nytt_kvitto(all_products):
     kvitto = Recepit()
-    kvitto.Add("Bannaner",3,12.50)
-    kvitto.Add("Äpplen",4,10.50)
+    kvitto.Add("Bannaner",3,4.50)
+    kvitto.Add("Kaffe",4,12.50)
 
     while True:
         print("KASSA")
