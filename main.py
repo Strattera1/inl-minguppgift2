@@ -22,6 +22,7 @@ def Nytt_kvitto(all_products):
     kvitto = Recepit()
     kvitto.Add("Bannaner",3,4.50)
     kvitto.Add("Kaffe",4,12.50)
+    
 
     while True:
         print("KASSA")
@@ -36,7 +37,7 @@ def Nytt_kvitto(all_products):
 
 while True:
     sel = Huvud_meny()
-    if sel == 2:
-        Break
-    elif sel == 1:
+    if sel == 1:
         Nytt_kvitto(all_products)
+    elif sel == 2:
+       break
