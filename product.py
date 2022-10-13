@@ -1,3 +1,6 @@
+from os import name
+
+
 class Product:
     def __init__(self, name:str, price:float,productid:str):
         self.__Name = name
@@ -5,6 +8,8 @@ class Product:
         self.__ProductId = productid
         self.__PriceType = ""
     
-    def GetName(self):
-        return self.__Name
+    def Get_Name(self):
+        return self.__Name, self.__Price, self.__ProductId, self.__PriceType
+        
+
         
