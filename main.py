@@ -1,5 +1,7 @@
 from ast import Break
+from datetime import datetime
 from itertools import product
+from time import strftime
 from Recepit import Recepit,Recepit_row
 from product import Product
 
@@ -26,8 +28,8 @@ def Nytt_kvitto(all_products):
 
     while True:
         print("KASSA")
-        datum = "2022-10-05-13-34-5"
-        print("KVITTO{datum}")
+        datum = datetime.now()
+        print(f"KVITTO {datum}")
         print ("kommandon")
         print ("<productid> <antal>")
         print ("PAY")
