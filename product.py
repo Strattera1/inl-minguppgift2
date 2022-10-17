@@ -5,9 +5,8 @@ class Product:
         self.__Price = price
         self.__ProductId = productid
         self.__PriceType = ""
-    
+    def get_product_id(self):
+        return self.__ProductId
     def Get_Name(self):
-        return self.__Name, self.__Price, self.__ProductId, self.__PriceType
-        
-
+        return self.__Name
         
