@@ -1,18 +1,19 @@
 from ast import Break
 from datetime import datetime
 from itertools import product
+from subprocess import call
 from time import strftime
 from Recepit import Recepit,Recepit_row
 from product import Product
 
 all_products = []
+
 with open ("products.txt") as file:
     for line in file:
         parts =  line.split(";")
         product = Product(parts[1], float(parts [2]), parts[0])
         all_products.append(product)
 
-print (all_products[0].Get_Name())
 
 def Huvud_meny():
     print ("1. Ny kund")
@@ -27,6 +28,9 @@ def Nytt_kvitto(all_products):
     
 
     while True:
+        action = 0
+        antal = 0
+        words = [action,antal]
         print("KASSA")
         datum = datetime.now()
         nu = datum.strftime("%Y:%m:%d %H:%M:%S")
@@ -34,22 +38,19 @@ def Nytt_kvitto(all_products):
         print ("kommandon")
         print ("<productid> <antal>")
         print ("PAY")
-        action = input ("Kommando: ")
-        if action == "PAY":
+        words=[action for action in input ("Kommando: ").split()]
+        antal = float
+
+        
+
+        if words[0] == "PAY":
             break
-        elif action == "300":
-            for prod in all_products:
-                if prod.get_product_id() == "300":
-                    print(prod.Get_Name())
-        elif action == "400":
-            for prod in all_products:
-                if prod.get_product_id() == "400":
-                    print(prod.Get_Name())
-        elif action == "100":
-            for prod in all_products:
-                if prod.get_product_id() == "100":
-                    print(prod.Get_Name())
-          
+        for prod in all_products:
+            if prod.get_product_id() == words[0]:
+                item = prod.Get_Price() * antal(words[1])
+                print(prod.Get_Name(), antal(words[1]), "*", prod.Get_Price(), "=", item)
+                kvitto.append(Recepit)
+
 while True:
     sel = Huvud_meny()
     if sel == 1:
