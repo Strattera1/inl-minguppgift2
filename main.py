@@ -5,7 +5,6 @@ from subprocess import call
 from time import strftime
 from Recepit import Recepit,Recepit_row
 from product import Product
-
 all_products = []
 
 with open ("products.txt") as file:
@@ -23,8 +22,6 @@ def Huvud_meny():
 
 def Nytt_kvitto(all_products):
     kvitto = Recepit()
-    kvitto.Add("Bannaner",3,4.50)
-    kvitto.Add("Kaffe",4,12.50)
     
 
     while True:
@@ -47,9 +44,20 @@ def Nytt_kvitto(all_products):
             break
         for prod in all_products:
             if prod.get_product_id() == words[0]:
-                item = prod.Get_Price() * antal(words[1])
-                print(prod.Get_Name(), antal(words[1]), "*", prod.Get_Price(), "=", item)
-                kvitto.append(Recepit)
+            
+                kvitto.Add(prod.Get_Name(),int(words[1]),prod.Get_Price())
+
+        for x in kvitto.GetReceiptRows():  
+            print(x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total())
+
+        print ("Totalt: ",kvitto.Get_total())
+        with open ("RECIEPT_yyyyMMdd.txt","a") as file:
+            pass
+
+                
+
+
+
 
 while True:
     sel = Huvud_meny()
