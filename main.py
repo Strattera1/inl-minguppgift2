@@ -1,12 +1,12 @@
 from ast import Break
-from datetime import datetime
+from datetime import date, datetime
 from itertools import product
 from subprocess import call
 from time import strftime
 from Recepit import Recepit,Recepit_row
 from product import Product
+import os
 all_products = []
-
 with open ("products.txt") as file:
     for line in file:
         parts =  line.split(";")
@@ -19,10 +19,11 @@ def Huvud_meny():
     print ("2. Avsluta")
     selection = int(input(":"))
     return selection
+    
 
 def Nytt_kvitto(all_products):
     kvitto = Recepit()
-    
+    fil = Recepit()
 
     while True:
         action = 0
@@ -38,9 +39,9 @@ def Nytt_kvitto(all_products):
         words=[action for action in input ("Kommando: ").split()]
         antal = float
 
-        
-
         if words[0] == "PAY":
+            for y in fil.Save_To_File():
+                file.write(f"{y}\n")
             break
         for prod in all_products:
             if prod.get_product_id() == words[0]:
@@ -51,13 +52,10 @@ def Nytt_kvitto(all_products):
             print(x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total())
 
         print ("Totalt: ",kvitto.Get_total())
-        with open ("RECIEPT_yyyyMMdd.txt","a") as file:
-            pass
 
-                
-
-
-
+     
+        
+        
 
 while True:
     sel = Huvud_meny()
