@@ -1,1 +1,0 @@
-<Recepit.Recepit object at 0x00000254A85B3040>
