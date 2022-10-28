@@ -13,5 +13,3 @@ class Product:
         return self.__Price
     def Get_PriceType(self):
         return self.Get_PriceType
-        
-        

@@ -50,16 +50,12 @@ def Nytt_kvitto(all_products):
             break
         for prod in all_products:
             if prod.get_product_id() == act[0]:
-
                 kvitto.Add(prod.Get_Name(),int(act[1]),prod.Get_Price())
 
         for x in kvitto.GetReceiptRows():
             print(x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total())
        
         print ("Totalt: ",kvitto.Get_total())
-
-
-
 
 
 while True:
