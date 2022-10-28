@@ -46,7 +46,7 @@ def Nytt_kvitto(all_products):
                 utdata.write(strftime("%Y:%m:%d: %H:%M:%S \n"))
                 for x in kvitto.GetReceiptRows():
                     utdata.write(f"{x.Get_Name()} {x.Get_Count()} * {x.Get_Price()} = {x.Get_total()}\n")
-                utdata.write(f"Total: {kvitto.Get_total()}\n")     
+                utdata.write(f"Total: {kvitto.Get_total()}\n\n")     
             break
         for prod in all_products:
             if prod.get_product_id() == act[0]:
