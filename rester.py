@@ -45,4 +45,11 @@
 #     pass
 # with open("RECEIPT_yyyyMMdd.txt","a") as utdata:
 #         print ("lolz")
-#  (x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total()) 
+# #  (x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total()) 
+
+# IsWet = 'Yes'
+# with open(dPath + FileDate + '.txt', 'r') as Precipitation:
+#     for row in Precipitation:
+#         if IsWet == str(row.strip().split(',')[5]):
+#             with open(dPath + 'Wet.txt', 'a') as outfile:
+#                 outfile.write(wDay + ',' + IsWet)

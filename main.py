@@ -1,6 +1,7 @@
 from ast import Break
 from datetime import date, datetime
 from gc import get_count
+from io import TextIOWrapper
 from itertools import product
 from time import strftime
 from Recepit import Recepit,Recepit_row
@@ -28,7 +29,7 @@ def Nytt_kvitto(all_products):
     while True:
         action = 0
         antal = 0
-        words = [action,antal]
+        act = [action,antal]
         print("KASSA")
         datum = datetime.now()
         nu = datum.strftime("%Y:%m:%d %H:%M:%S")
@@ -36,28 +37,25 @@ def Nytt_kvitto(all_products):
         print ("kommandon")
         print ("<productid> <antal>")
         print ("PAY")
-        words=[action for action in input ("Kommando: ").split()]
+        act=[action for action in input ("Kommando: ").split()]
         antal = float
 
-        if words[0] == "PAY":
-            lolz = "RECEIPT_" +strftime("%Y,%m,%d") + ".txt"
-            for x in kvitto.GetReceiptRows():  
-                with open(str(lolz), "a") as utdata:
-                    utdata.write(strftime("%Y:%m:%d: %H:%M:%S \n"))
+        if act[0] == "PAY":
+            save_to_file = "RECEIPT_" +strftime("%Y%m%d") + ".txt"
+            with open(str(save_to_file), "a") as utdata:
+                utdata.write(strftime("%Y:%m:%d: %H:%M:%S \n"))
+                for x in kvitto.GetReceiptRows():
                     utdata.write(f"{x.Get_Name()} {x.Get_Count()} * {x.Get_Price()} = {x.Get_total()}\n")
-                    utdata.write(f"'Totalt:' {kvitto.Get_total()}")
+                utdata.write(f"Total: {kvitto.Get_total()}\n")     
             break
         for prod in all_products:
-            if prod.get_product_id() == words[0]:
+            if prod.get_product_id() == act[0]:
 
-                kvitto.Add(prod.Get_Name(),int(words[1]),prod.Get_Price())
+                kvitto.Add(prod.Get_Name(),int(act[1]),prod.Get_Price())
 
         for x in kvitto.GetReceiptRows():
             print(x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total())
        
-               
-
-
         print ("Totalt: ",kvitto.Get_total())
 
 
@@ -70,3 +68,5 @@ while True:
         Nytt_kvitto(all_products)
     elif sel == 2:
        break
+    else:
+        print ("välj mellan 1-2.")

@@ -1,3 +1,4 @@
 300; Bananer;4.50; Perkilo
 400; Kaffe; 12.50; PerStyck
 100; Korv; 15.49; PerStyck
+500; CubaCola; 11.50; PerStyck
