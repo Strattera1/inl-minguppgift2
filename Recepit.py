@@ -37,8 +37,5 @@ class Recepit:
     def Add(self,ProductName:str,count:int,PerPrice:float):
         r = Recepit_row(ProductName,count,PerPrice)
         self.__Recepit_row.append(r)
-    def Save_To_File(self):
-        y = Recepit_row
-        file = datetime.now()
-        with open (file.strftime("%Y,%m,%d") +".txt","a") as file:
-            file.write(f"{y}\n")
+
+            

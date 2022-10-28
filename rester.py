@@ -27,3 +27,22 @@
     #         item = prod.Get_Price() * antal
     #         print(prod.Get_Name(), antal, "*", prod.Get_Price(), "=", item)
     #     return action,antal,item,prod
+    # x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total(),"\n"
+                # for y in fil:
+            #     file.write(f"{y}\n")
+            #     y.Save_To_File()
+
+        #         def Save_To_File(self):
+        # print ("123345")
+        # y = ("PYTHOn")
+        # file = datetime.now()
+        # with open (file."RECEIPT_"strftime("%Y,%m,%d") +".txt","a") as file:
+        #     file.write(f"{y}\n")
+  # with open("RECEIPT_yyyyMMdd.txt","a") as utdata:
+     #         print ("lolz")
+
+     # with open("RECEIPT_yyyyMMdd.txt","w") as rensa:
+#     pass
+# with open("RECEIPT_yyyyMMdd.txt","a") as utdata:
+#         print ("lolz")
+#  (x.Get_Name(), x.Get_Count(), "*", x.Get_Price(), "=", x.Get_total()) 
